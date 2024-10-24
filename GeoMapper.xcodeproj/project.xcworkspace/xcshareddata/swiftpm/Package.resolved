@@ -1,0 +1,42 @@
+{
+  "originHash" : "7329b1e65fdc83c6f2aecfd637ab272e871be5e6febe6d84d7c0efd1de768296",
+  "pins" : [
+    {
+      "identity" : "geojsonswifthelper",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Asheshp23/GeoJSONSwiftHelper",
+      "state" : {
+        "branch" : "main",
+        "revision" : "6269b8c817aab2bfb56d3ac5478f0246630ed8c9"
+      }
+    },
+    {
+      "identity" : "geos",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/GEOSwift/geos.git",
+      "state" : {
+        "revision" : "f510e634c822116fca615064d889300dba40d761",
+        "version" : "8.1.0"
+      }
+    },
+    {
+      "identity" : "geoswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/GEOSwift/GEOSwift.git",
+      "state" : {
+        "revision" : "939c9e7f19a084a425239dd8e2c744beb78da7d6",
+        "version" : "10.3.0"
+      }
+    },
+    {
+      "identity" : "turf-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mapbox/turf-swift.git",
+      "state" : {
+        "revision" : "213050191cfcb3d5aa76e1fa90c6ff1e182a42ca",
+        "version" : "2.8.0"
+      }
+    }
+  ],
+  "version" : 3
+}
