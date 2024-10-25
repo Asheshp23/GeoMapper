@@ -84,7 +84,20 @@ struct GeoMapperView: View {
         Text(error)
       }
       .sheet(isPresented: $isMapViewPresented) {
-        MapView(geoJSONObject: geoJSONObject)
+        ZStack {
+          MapView(geoJSONObject: geoJSONObject)
+        }
+        .overlay(alignment: .topTrailing) {
+          HStack {
+            Spacer()
+            Button(action: { isMapViewPresented.toggle() }) {
+              Image(systemName: "multiply.circle.fill")
+                .font(.system(size: 24))
+                .foregroundColor(.secondary)
+                .padding([.top, .trailing], 8)
+            }
+          }
+        }
       }
     }
   }
