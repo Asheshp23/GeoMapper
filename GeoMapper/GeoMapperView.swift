@@ -18,9 +18,12 @@ struct GeoMapperView: View {
   @State private var isValidGeoJSON: Bool = false
   @State private var showErrorAlert: Bool = false
   @State private var errorMessage: String = ""
+  @State private var currentRotation: CGFloat = 0 // Track rotation angle
+  @State private var currentOffset: CGSize = .zero // Track offset (translation)
+
   
   var body: some View {
-    NavigationView {
+    NavigationStack {
       VStack(spacing: 20) {
         TextEditor(text: $geoJSONString)
           .frame(minHeight: 200)
@@ -50,7 +53,9 @@ struct GeoMapperView: View {
           }
           .buttonStyle(.bordered)
           
-          Button(action: viewItOnMap) {
+          NavigationLink {
+            GeoMapView(geoJSONObject: geoJSONObject)
+          } label: {
             Label("View on Map", systemImage: "map")
           }
           .buttonStyle(.borderedProminent)
@@ -82,22 +87,6 @@ struct GeoMapperView: View {
         }
       } message: { error in
         Text(error)
-      }
-      .sheet(isPresented: $isMapViewPresented) {
-        ZStack {
-          MapView(geoJSONObject: geoJSONObject)
-        }
-        .overlay(alignment: .topTrailing) {
-          HStack {
-            Spacer()
-            Button(action: { isMapViewPresented.toggle() }) {
-              Image(systemName: "multiply.circle.fill")
-                .font(.system(size: 24))
-                .foregroundColor(.secondary)
-                .padding([.top, .trailing], 8)
-            }
-          }
-        }
       }
     }
   }
